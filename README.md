@@ -41,3 +41,43 @@ pod "hello-world" deleted
 $ kubectl get pod
 No resources found in default namespace.
 ```
+
+# Resourses
+
+* Create manufest file
+
+```pod.yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test
+  namespace: default
+  labels:
+    env: study
+spec:
+  containers:
+  - name: hello-world
+    image: hello-world
+
+```
+
+* control
+
+```
+$ kubectl apply -f pod.yml
+pod/test created
+
+$ kubectl get all
+NAME       READY   STATUS             RESTARTS   AGE
+pod/test   0/1     CrashLoopBackOff   1          27s
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   3h13m
+
+$ kubectl get -f pod.yml
+NAME   READY   STATUS             RESTARTS   AGE
+test   0/1     CrashLoopBackOff   2          34s
+
+$ kubectl delete -f pod.yml
+pod "test" deleted
+```
