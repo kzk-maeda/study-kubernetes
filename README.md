@@ -79,5 +79,6 @@ NAME   READY   STATUS             RESTARTS   AGE
 test   0/1     CrashLoopBackOff   2          34s
 
 $ kubectl delete -f pod.yml
-pod "test" deleted
+pod "test" deleted 
 ```
+
