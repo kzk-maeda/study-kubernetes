@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: default
+  labels:
+    env: study
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.17.2-alpine
+    volumeMounts:
+    - name: storage
+      mountPath: /home/nginx/
+  volumes:
+  - name: storage
+    hostPath:
+      path: /nfsshares/kzk_maeda/work/study/kubernetes/study-kubernetes/resources/pod/data/storage
+      type: Directory
+
