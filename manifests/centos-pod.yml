@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos7
+  namespace: default
+  labels:
+    env: study
+spec:
+  containers:
+  - name: centos7
+    image: centos:7
+    command:
+    - "sh"
+    - "-c"
+    args:
+    - |
+      while true
+        do
+          sleep ${DELAY}
+        done
+    env:
+    - name: "DELAY"
+      value: "5"
