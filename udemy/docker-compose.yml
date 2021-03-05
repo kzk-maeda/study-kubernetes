@@ -1,9 +1,0 @@
-version: "3"
-services:
-  minikube:
-    build: .
-    container_name: minikube
-    tty: true
-    restart: always
-    volumes:
-      - ./workspace:/tmp/workspace
