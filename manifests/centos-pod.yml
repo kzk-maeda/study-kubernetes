@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: centos7
+  name: debug
   namespace: default
   labels:
     env: study
 spec:
   containers:
-  - name: centos7
+  - name: debug
     image: centos:7
     command:
     - "sh"
@@ -21,3 +21,16 @@ spec:
     env:
     - name: "DELAY"
       value: "5"
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: default
+  labels:
+    env: study
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.17.2-alpine
