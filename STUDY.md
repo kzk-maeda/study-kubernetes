@@ -19,3 +19,11 @@
 > echo -n "YOUR_SECRET_KEY" | base64
 WU9VUl9TRUNSRVRfS0VZ
 ```
+
+## debug podを起動する方法
+
+```
+kubectl run debug --image=centos:7 -it --rm --restart=Never -- sh
+```
+
+- Headless Serviceを起動している場合、debug podから `curl http://<Pod名>.<Service名>/` でアクセス可能
